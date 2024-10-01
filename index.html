@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyhledávání Google</title>
+</head>
+<body>
+    <h1>Vyhledávání Google</h1>
+    <form id="searchForm">
+        <input type="text" id="searchQuery" placeholder="Zadejte klíčové slovo" required>
+        <button type="submit">Vyhledat</button>
+    </form>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchQuery').value;
+            // Odeslání vyhledávání
+            const searchURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            document.getElementById('results').innerHTML = `
+                <p>Pro zobrazení výsledků vyhledávání, klikněte na <a href="${searchURL}" target="_blank">tento odkaz</a>.</p>
+            `;
+        });
+    </script>
+</body>
+</html>
